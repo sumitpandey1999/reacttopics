@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
+// import DebouncingPractice from './components/DebouncingPractice';
+import { Provider } from 'react-redux';
+import store from './utils/store';
+import LiveChat from './components/LiveChat';
 
 function App() {
   return (
+    <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {/* <DebouncingPractice/> */}
+     <LiveChat/>
     </div>
+    </Provider>
   );
 }
 
