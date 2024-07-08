@@ -1,16 +1,14 @@
 
 import './App.css';
-// import DebouncingPractice from './components/DebouncingPractice';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import LiveChat from './components/LiveChat';
+import Accordian from './components/Accordian';
 
 function App() {
   return (
     <Provider store={store}>
     <div className="App">
-     {/* <DebouncingPractice/> */}
-     <LiveChat/>
+    <Accordian/>
     </div>
     </Provider>
   );
