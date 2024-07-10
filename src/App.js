@@ -1,15 +1,15 @@
-
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import FormValidation from './components/FormValidation';
+import TrelloBoard from './components/TrelloBoard';
+
 
 
 function App() {
   return (
     <Provider store={store}>
     <div className="App">
-    <FormValidation/>
+  <TrelloBoard/>
     </div>
     </Provider>
   );
