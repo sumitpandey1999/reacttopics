@@ -19,9 +19,18 @@ const TrelloBoard = () => {
                 item === progrssList[index]
             )
         })
-
         setCompleteTask((preValue) => [...preValue, complete])
+    }
 
+
+    const handleProgress = (index)=>{
+        const progress = completeTask.filter((item)=>{
+          return(
+            item===completeTask[index]
+          )
+        })
+
+        setProgrssList((preValue) => [...preValue, progress])
     }
 
     return (
@@ -80,7 +89,9 @@ const TrelloBoard = () => {
                         {completeTask &&
                             completeTask.map((completeTask, index) => {
                                 return (
-                                    <li key={index}>{completeTask}</li>
+                                    <li key={index}>{completeTask}
+                                    <span onClick={() => handleProgress(index)} className='text-sm bg-yellow-300 cursor-pointer'>InProgress</span>
+                                    </li>
                                 )
                             })
                         }
