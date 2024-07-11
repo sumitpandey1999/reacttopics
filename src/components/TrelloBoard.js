@@ -33,6 +33,14 @@ const TrelloBoard = () => {
         setProgrssList((preValue) => [...preValue, progress])
     }
 
+    const handleDelete = (index)=>{
+       const deletetask = [...toDo]
+       console.log(deletetask)
+       deletetask.splice(index,1)
+       setToDo(deletetask)
+       
+    }
+
     return (
         <div>
             <h1 className='font-bold'>TRELLOBOARD</h1>
@@ -61,7 +69,7 @@ const TrelloBoard = () => {
 
                                 <li key={index}>{toDo}
                                     <span onClick={() => handleMoveRight(index)} className='text-sm bg-yellow-300 cursor-pointer'>
-                                        Move Right</span></li>
+                                        Move Right</span> <span onClick={()=>handleDelete(index)}>Delete</span></li>
                             )
                         })}
                     </ul>

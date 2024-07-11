@@ -1,16 +1,16 @@
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import TrelloBoard from './components/TrelloBoard';
+import AdvanceTrelloBoard from './components/AdvanceTrelloBoard';
 
 
 
 function App() {
   return (
     <Provider store={store}>
-    <div className="App">
-  <TrelloBoard/>
-    </div>
+      <div className="App">
+        <AdvanceTrelloBoard />
+      </div>
     </Provider>
   );
 }
