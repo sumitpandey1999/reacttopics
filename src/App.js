@@ -1,18 +1,14 @@
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import DragAndDrop from './components/DragAndDrop';
-
-
-
-
+import CircleOnClick from './components/CircleOnClick';
 
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <DragAndDrop />
+        <CircleOnClick />
       </div>
     </Provider>
   );
