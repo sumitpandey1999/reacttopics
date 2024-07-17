@@ -1,14 +1,15 @@
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import CircleOnClick from './components/CircleOnClick';
+import TicTacToe from './components/TicTacToe';
+
 
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <CircleOnClick />
+        <TicTacToe />
       </div>
     </Provider>
   );
