@@ -1,15 +1,15 @@
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import TicTacToe from './components/TicTacToe';
-
+import Toaster from './components/Toaster';
+;
 
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <TicTacToe />
+        <Toaster/>
       </div>
     </Provider>
   );

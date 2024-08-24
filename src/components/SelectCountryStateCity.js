@@ -1,47 +1,101 @@
 import React, { useState } from 'react'
-import { data } from '../utils/data'
 
 const SelectCountryStateCity = () => {
 
-const [country, setCountry] = useState("")
-console.log(country)
+    const [countries, setCountries] = useState(null)
+    const [state, setState] = useState(null)
+    const [city, setCity] = useState(null)
+
+
+    console.log(countries)
+    console.log(state)
+    console.log(city)
+
+    const data = {
+        countries: [
+            {
+                id: 1,
+                name: "Country1",
+                states: [
+                    {
+                        id: 1,
+                        name: "State1",
+                        cities: [
+                            { id: 1, name: "City1" },
+                            { id: 2, name: "City2" },
+                            { id: 3, name: "City3" }
+                        ]
+                    },
+                    {
+                        id: 2,
+                        name: "State2",
+                        cities: [
+                            { id: 4, name: "City4" },
+                            { id: 5, name: "City5" }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "Country2",
+                states: [
+                    {
+                        id: 3,
+                        name: "State3",
+                        cities: [
+                            { id: 6, name: "City6" },
+                            { id: 7, name: "City7" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    };
+
+
+
+    const getCountries = () => {
+        return (data.countries.map((item, index) => {
+            return (
+                <option key={index} value={item.name}>{item.name}</option>
+            )
+        }))
+    }
+
+   const getState = () =>{
+    if(!countries) return []
+    const selectedCountry = data.countries.find((item)=>{
+       return  item.name === setCountries
+    })
+    
+   }
 
     return (
-        <div className='mt-4'>
-            <label className='ml-2 font-bold' htmlFor="country">Country</label>
-            <select className='ml-2' name="country" id="country" onChange={(e)=>setCountry(e.target.value)}>
-                <option value="select">Select</option>
-                {data.countries.map((country, index) => {
-                    return (
-                        <option key={index} value={country?.name}>{country?.name}</option>
-                    )
-                })}
+        <div>
+            <select
+                name="country" id="country"
+                onChange={(e) => setCountries(e.target.value)}
+                value={countries}
+            >
+                <option value="">Select Country</option>
+                {getCountries()}
+            </select>
 
+            <select
+                onChange={(e) => setState(e.target.value)}
+                value={state}
+                name="state" id="state">
+                <option value="">Select State</option>
             </select>
 
 
-            <label className='ml-2 font-bold' htmlFor="state">State</label>
-            <select className='ml-2' name="state" id="state">
-                <option value="select">Select</option>
-
-                {data.countries.map((state, index) => {
-                    return (
-                        <option key={index} value="select">{state?.states.map((stateName) => {
-                            return (
-                                stateName.name
-                            )
-                        })}</option>
-                    )
-                })}
-
+            <select
+                onChange={(e) => { setCity(e.target.value) }}
+                value={city}
+                name="city" id="city">
+                <option value="">Select City</option>
             </select>
-
-
-            <label className='ml-2 font-bold' htmlFor="city">City</label>
-            <select className='ml-2' name="city" id="city">
-                <option value="select">Select</option>
-            </select>
-
         </div>
     )
 }
